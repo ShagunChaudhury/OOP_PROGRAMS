@@ -1,0 +1,52 @@
+#include<iostream.h>
+#include<conio.h>
+class areacalc
+{
+int base, height, radius;
+public:
+areacalc()
+{
+base=0;
+height=0;
+radius=0;
+}
+float area(int p,int q)
+{
+float area2;
+area2=0.5*p*q;
+return(area2);
+}
+float area(int rad)
+{
+float area1;
+area1=3.14*rad*rad;
+return area1;
+}
+};
+void main()
+{
+clrscr();
+areacalc a1,a2;
+float x,y;
+float result;
+int c;
+cout<<"enter 1 to calculate area of triangle\n";
+cout<<"enter 2 to calculate area of circle\n";
+cout<<"enter your choice : ";
+cin>>c;
+if(c==1)
+{
+cout<<"enter base and height of triangle \n";
+cin>>x>>y;
+result=a1.area(x,y);
+cout<<"area of triangle is "<<result<<" sq. units ";
+}
+if(c==2)
+{
+cout<<"enter radius of circle \n";
+cin>>x;
+result=a2.area(x);
+cout<<"area of circle is "<<result<<" sq. units ";
+}
+getch();
+}

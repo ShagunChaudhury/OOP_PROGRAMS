@@ -1,0 +1,66 @@
+#include<iostream.h>
+#include<conio.h>
+class A
+{
+int a;
+public:
+void get_a()
+{
+cout<<"Enter value of A : ";
+cin>>a;
+}
+int show_a()
+{
+return a;
+}
+};
+class B:public A
+{
+int b;
+public:
+void get_b()
+{
+cout<<"Enter value of B : ";
+cin>>b;
+}
+int show_b()
+{
+return b;
+}
+};
+class D
+{
+int d;
+public:
+void get_d()
+{
+cout<<"Enter value of D : ";
+cin>>d;
+}
+int show_d()
+{
+return d;
+}
+};
+class sum:public B, public D
+{
+int sum;
+public:
+void show_sum()
+{
+sum=show_a()+show_b()+show_d();
+cout<<"sum = "<<sum;
+}
+};
+void main()
+{
+clrscr();
+sum c1;
+c1.get_a();
+c1.get_b();
+c1.get_d();
+c1.show_sum();
+getch();
+}
+
+

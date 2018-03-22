@@ -1,0 +1,72 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+#include<process.h>
+class demo
+{
+	int x,y,z,len;
+	char *p;
+	public:
+	demo()
+	{
+		len=0;
+		x=0;
+		y=0;
+		z=0;
+	}
+	void getdata(int a,int b,int c)
+	{
+		x=a;
+		y=b;
+		z=c;
+	}
+	void getstring(char *str)
+	{
+		len=strlen(str);
+		p=new char[len+1];
+		strcpy(p,str);
+	}
+	void displaydata()
+	{
+	cout<<"negatives of entered numbers are \n";
+	cout<<x<<"  "<<y<<"  "<<z<<endl;
+	}
+	friend void operator+(demo,demo);
+	friend void operator-(demo);
+};
+void operator+(demo a,demo b)
+{
+	demo temp;
+	temp.len=a.len+b.len;
+	temp.p=new char[temp.len+1];
+	strcpy(temp.p,a.p);
+	strcat(temp.p,b.p);
+	cout<<"concatenated string is "<<temp.p;
+}
+void operator-(demo c)
+{
+	demo t;
+	t.x=-c.x;
+	t.y=-c.y;
+	t.z=-c.z;
+	t.displaydata();
+}
+void main()
+{
+	clrscr();
+	int m,q,r;
+	char *s1,*s2;
+	demo d1,d2,d3;
+	cout<<"enter 3 numbers to calculate their negative \n";
+	cin>>m>>q>>r;
+	d1.getdata(m,q,r);
+	-d1;
+	cout<<"enter string 1 \n";
+	cin>>s1;
+	cout<<"enter string 2 \n";
+	cin>>s2;
+	d2.getstring(s1);
+	d3.getstring(s2);
+	d2+d3;
+	exit(1);
+}
